@@ -60,6 +60,15 @@ async function run() {
         res.send(result);
       });
 
+      app.get("/brand/:brandName", async (req, res) => {
+        const brandName = req.params.brandName;
+        const query = { brandName: brandName };
+        const result = await carCollection.find(query).toArray();
+          res.send(result)
+          console.log(query);
+          
+      });
+
 
 
     // Send a ping to confirm a successful connection
